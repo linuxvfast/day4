@@ -1,0 +1,87 @@
+__author__ = 'linux vfast'
+'''
+#追加文件
+# list_info = ['ask','145']
+with open('test.txt','a',encoding='utf-8') as write_file:
+    write_file.writelines('\n' + 'ask ' + '145')
+write_file.close()
+'''
+
+'''
+#读文件
+with open('test.txt','r',encoding='utf-8') as f:
+    read_info = f.readlines()
+    print(read_info)
+    # f.seek(0)   #光标移动到开始位置0
+    # read_info2 = f.read()
+    # print('-------------------')
+    # print(read_info2)
+f.close()
+'''
+
+'''
+#读文件
+with open('test.txt','r',encoding='utf-8') as f:
+    read_info = f.readlines()
+    for index,line in enumerate(read_info):
+        if index == 1:
+            print('我是第%s行'% index)
+            continue
+        print(line.strip())
+f.close()
+'''
+'''
+#节省内存
+with open('test.txt','r',encoding='utf-8') as f:
+    for line in f:
+        print(line)
+f.close()
+'''
+
+'''
+with open('test.txt','r',encoding='utf-8') as f:
+    # print(f.fileno())
+    # print(f.encoding)
+    # print(f.readable())
+    # print(f.readline())
+    # print(f.seekable())
+    # print(f.buffer)
+    # f.write('hello \n')
+    # print(f.flush())
+    # print(f.isatty())
+f.close()
+'''
+
+'''
+#屏幕进度条显示
+import sys,time
+for i in range(20):
+    sys.stdout.write('#')
+    sys.stdout.flush()
+    time.sleep(0.1)
+'''
+'''
+#读写
+f = open('test.txt','r+')
+print(f.readline())
+print(f.readline())
+print(f.tell())
+f.seek(4)
+print(f.tell())
+f.write('python\n')
+f.seek(0)
+print(f.read())
+'''
+'''
+#二进制写
+f = open('test.txt','wb')
+f.write('hello binary\n'.encode())
+f.close()
+'''
+
+'''
+#二进制读
+f = open('test.txt','rb')
+print(f.read().decode())
+f.close()
+'''
