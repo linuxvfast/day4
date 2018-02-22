@@ -85,3 +85,19 @@ f = open('test.txt','rb')
 print(f.read().decode())
 f.close()
 '''
+
+
+
+
+#修改文件
+# f = open('test.txt','r',encoding='utf-8')
+# f_new = open('test.bak','w',encoding='utf-8')
+
+with open('test.txt','r',encoding='utf-8') as f:
+    with open('test.bak','w',encoding='utf-8') as f_new:
+        for line in f:
+            if "习近平在讲话中指出" in line:
+                line = line.replace('习近平在讲话中指出','我本人在讲话中指出')
+            f_new.write(line)
+f.close()
+f_new.close()
